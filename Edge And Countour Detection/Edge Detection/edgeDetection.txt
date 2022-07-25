@@ -1,0 +1,23 @@
+EDGE DETECTION
+
+The process of edge detection involves detecting sharp edges in the image and producing a binary image as the output. Typically, we draw white lines on a black
+background to indicate those edges. We can think of edge detection as a high pass filtering operation. A high pass filter allows high frequency content to pass through and
+blocks the low frequency content. As we discussed earlier, edges are high frequency content. In edge detection, we want to retain these edges and discard everything else.
+Hence, we should build a kernel that is the equivalent of a high pass filter.
+
+Let's start with a simple edge detection filter known as the Sobel filter. Since edges can occur in both horizontal and vertical directions, the Sobel filter is composed of
+the following two kernels:
+kernel 1 : detects horizontal edges
+kernel 2 : detects vertical edges. 
+
+OpenCV provides a function to directly apply the Sobel filter to a given image
+
+
+
+As we can see in the ouput Images, the Laplacian kernel gives rise to a noisy output and this is not exactly useful. 
+To overcome this problem, we use the Canny edge detector. To use the Canny edge detector, we can use the following function:
+                    
+                    canny = cv2.Canny(img, 50, 240)
+
+As we can see, the quality of the Canny edge detector is much better. It takes two numbers as arguments to indicate the thresholds. The second argument is called the low threshold value, and the third argument is called the high threshold value. If the gradient value is above the high threshold value, it is marked as a strong edge.
+The Canny Edge Detector starts tracking the edge from this point and continues the process until the gradient value falls below the low threshold value. As you increase these thresholds, the weaker edges will be ignored. The output image will be cleaner and sparser.

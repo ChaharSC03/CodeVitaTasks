@@ -1,0 +1,26 @@
+Contour Detection
+
+Contour : when all boundary points of an object are join then we get Contour.
+typically a specific contour refers to boundary values or pixels that have the same color and intensity.
+
+OpenCV provides two simple Functions:
+1. findContours()
+2.drawContours()
+
+there are two differen algorithms for contour detection:
+
+1. CHAIN_APPROX_NONE
+2. CHAIN_APPROX_SIMPLE
+
+
+We will follow few steps for detecting and drawing contours:
+
+1. Read the image and convert it to grayscale format
+
+2. first always apply binary threshold or canny edge detection to grayscale image 
+
+Thresholding turns the border of the object in the image completely white, with all pixels having the same intensity.
+
+3. Finding Contour using findContours() function to detect the contour in the image
+
+4. Once contour have been identified , use drawContours() function to overlay the contour on the original image
